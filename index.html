@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <style>
+    body{
+      background-color: #a30b50;
+        }
+    </style>
+    <title>Comparing arrays</title>
+    <script>
+        var j = 0;
+        var i = 0;
+        var pics = ["<img src = 'gecko.jpg'>" , "<img src = 'horse.jpg'>", "<img src = 'tulip.jpg'>" , "<img src = '999.jpg'>" , "<img src = 'hippo.jpg'>"];
+        var myAnswers = [];
+        var realAnswers  = ["3", "2200", "1", "999" , "0"];
+         var count = 0; //score
+
+         function dispNext(){
+            i++;
+           document.getElementById('imgOut').innerHTML = pics[i];
+            comp();
+         }
+
+
+
+       function comp()
+       {
+              myAnswers[j] =  document.getElementById("input").value;
+              if(myAnswers[j] == realAnswers[j])
+              {
+                  count++;
+              }
+
+        if(j >= 4 )
+        {
+          if(count == 5){
+             document.getElementById("imgOut").innerHTML = "Excellent Job: 5/5"
+          }
+          else if(count == 4){
+             document.getElementById("imgOut").innerHTML = "Fantastic Job: 4/5"
+          }
+            else if(count == 3)
+            {
+               document.getElementById("imgOut").innerHTML = "Great Job: 3/5";
+             }
+             else if(count == 2){
+                document.getElementById("imgOut").innerHTML = "Good Job: 2/5"
+             }
+             else if(count == 1){
+                document.getElementById("imgOut").innerHTML = "OK: 1/5"
+             }
+             else{
+                document.getElementById("imgOut").innerHTML = "Nice Try: 0/5"
+             }
+          }
+             j++;
+       }
+
+
+       function start(){
+         document.getElementById('imgOut').innerHTML = pics[0];
+         document.getElementById("begin").style.visibility = "hidden";
+       }
+    </script>
+  </head>
+  <body>
+    <input type = "textbox" id = "input">
+    <input type = "button" id = "continue" value = "Enter Weight" onclick = "dispNext()">
+    <input type = "button" id = "begin" value = "click to begin" onclick = "start()">
+    <br>
+    <br>
+    <span id = "imgOut"></span>
+  </body>
+</html>
